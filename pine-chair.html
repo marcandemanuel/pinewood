@@ -6,6 +6,84 @@
   <title>CSS Basics</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
+  var cost = 8000;
+  var firstItemChecked = false;
+  var secondItemChecked = false;
+  var imageChecked = false;
+  var imageChecked2 = false;
+  function addRow () {
+    var image = document.getElementById('image');
+    if (image.src.match("colorbottel")) {
+      image.src = "images/w.png";
+    }
+    else {
+      image.src = "images/l.jpg";
+    }
+    if (imageChecked2) {
+      imageChecked2 = false;
+      const element = document.getElementById("demo2");
+      element.remove();
+      image.src = "images/w.png";
+    } else {
+      imageChecked2 = true;
+      document.querySelector('#foo').insertAdjacentHTML(
+        'afterbegin',
+        `<div class="row" id="demo2">
+        <label><p style="padding: 20px;line-height: 25px;font-size: 15px;cursor: pointer" onclick="myFunction()">This is a very good lamp, and if you buy this until August 15, you will get a volcano lamp for the volcano table, and 1500$ discount.</p></label>
+        </div>`      
+        )
+    }
+  }
+  function addRow2 () {
+    var image = document.getElementById('image2');
+    if (image.src.match("colorbottel")) {
+      image.src = "images/w.png";
+    }
+    else {
+      image.src = "images/l.jpg";
+    }
+    if (imageChecked2) {
+      imageChecked2 = false;
+      const element = document.getElementById("demo3");
+      element.remove();
+      image.src = "images/w.png";
+    } else {
+      imageChecked2 = true;
+      document.querySelector('#poo').insertAdjacentHTML(
+        'afterbegin',
+        `<div class="row" id="demo3">
+        <label><p style="padding: 20px;line-height: 25px;font-size: 15px;cursor: pointer" onclick="myFunction()">This is a very good lamp, and if you buy this until August 15, you will get a volcano lamp for the volcano table, and 1500$ discount.</p></label>
+        </div>`      
+        )
+    }
+  }
+  function removeRow (input) {
+    input.parentNode.remove()
+  }
+  function myFunction() {
+    if (firstItemChecked) {
+      firstItemChecked = false;
+      cost -= 500;
+      document.getElementById('foo3').style.cssText = 'border-color: rgb(0, 0, 0);color: black;font-size: 20px;padding: 0px;margin: 10px 20px';
+    } else {
+      firstItemChecked = true;
+      cost += 500;
+      document.getElementById('foo3').style.cssText = 'border-color: rgb(0, 0, 255);color: black;font-size: 20px;padding: 0px;margin: 10px 20px;box-shadow: 0px 0px 0px 3px #339DE6';
+    }
+    document.getElementById("demo").innerHTML = cost;
+  }
+  function myx() {
+    if (secondItemChecked) {
+      secondItemChecked = false;
+      cost -= 300;
+      document.getElementById('foo2').style.cssText = 'border-color: rgb(0, 0, 0);color: black;font-size: 20px;padding: 0px;margin: 10px 20px';
+    } else {
+      secondItemChecked = true;
+      cost += 300;
+      document.getElementById('foo2').style.cssText = 'border-color: rgb(0, 0, 255);color: black;font-size: 20px;padding: 0px;margin: 10px 20px;box-shadow: 0px 0px 0px 3px #339DE6';
+    }
+    document.getElementById("demo").innerHTML = cost;
+  }
   $(document).ready(function(){
   // Add smooth scrolling to all links
   $("a").on('click', function(event) {
@@ -241,6 +319,14 @@
     background-image: url("images/r.jpg");
     min-height: 50%;
   }
+  .bgimg-5 {
+    background-image: url("images/u.jpg");
+    min-height: 50%;
+  }
+  .bgimg-6 {
+    background-image: url("images/k.jpg");
+    min-height: 50%;
+  }
   .caption {
     position: absolute;
     left: 0;
@@ -379,7 +465,7 @@
         <div class="navbar">
           <a href="index.html">Home</a>
           <div class="dropdown">
-            <button class="dropbtn">Shop
+            <button class="dropbtn"><a href="shop.html" style="padding: 0;background-color: rgba(20, 10, 0, 0)">Shop</a>
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
@@ -388,8 +474,8 @@
               <a href="#">Sold out</a>
             </div>
           </div>
-          <a href="news.html">Delivery</a>
-          <a href="delivery.html">News</a>
+          <a href="delivery.html">Delivery</a>
+          <a href="news.html">News</a>
           <a href="#Contact">Contact</a>
         </div> 
       </div>
@@ -414,56 +500,44 @@
                     <p style="color: black;font-size: 25px;text-align: left"><img src="images/z.jpg">: 8000$<p/>
                       <ul/>
                     </div>
-                    <div id="lamp" style="text-align: center">
-                      <h3 class="parag2" style="color: black">Accesories<h3/>
-                        <div class="farag3" style="color: black;font-size: 20px;padding: 0px;margin: 10px 20px">
-                          <p style="padding-top: 10px"><a href="shop-coasters.html">+300$: Coasters</a><p/><a href="#"><p style="margin: 0px;padding-bottom: 10px"><img src="images/w.png" style="width: 20px;margin: 0px"></p></a>
-                        </div>
-                        <div class="farag3" style="color: black;font-size: 20px;padding: 0px;margin: 10px 20px">
-                          <p style="padding-top: 10px"><a href="">+500$: Lamp </a><a href="#" style="color: black;font-size: 20px">(Discount)</a><p/><p style="line-height: 25px;padding: 20px;padding-bottom: 5px">If you buy this lamp with this furniture, you will get a very good kit and you can save 1500$, because if you buy the lamp without this table, the price of the lamp would be 2000$ instead of 500$. The kit contain a volcano lamp, for the volcano epoxy table.</p><a href="epoxy-table.html"><p style="margin: 0px;padding-bottom: 10px"><img src="images/l.jpg" style="width: 20px;margin: 0px"></p></a>
-                        </div>
-                        <div class="farag4" style="color: rgb(29, 94, 4);font-size: 20px;padding: 0px;margin: 120px 20px;background-color: rgb(62, 204, 6)">
-                          <p style="padding-top: 15px;margin: 15px"><a href="" style="color: rgb(29, 94, 4)">Add to cart</a><p/><p style="margin: 0px;padding-bottom: 20px">8000$</p>
-                        </div>
-                      </div>
-                    </th>
-                  </tr>
-                  <table/>
+                          </th>
+                        </tr>
+                        <table/>
 
-                  <div class="footer">
-                    <!-- Footer -->
-                    <footer
-                    class="rest"
-                    >
-                    <!-- Grid container -->
-                    <div class="container p-4 pb-0">
-                      <!-- Section: Links -->
-                      <section class="section">
-                        <div id="Contact" class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                          <h6 class="fact4">Contact</h6>
-                          <div class="Email">
-                            <p class="fact5">Email</p>
-                            <p>
-                              <a class="fact6" style="text-align: center">pinewood@gmail.com</a>
-                            </p>
-                          </div>
-                          <div class="Phone number">
-                            <p class="fact5">Phone number</p>
-                            <p>
-                              <a class="fact6" style="text-align: center">036...</a>
-                            </p>
-                            <p>
-                              <a class="fact7"><em>Pinewood company, 2022</em></a>
-                            </p>
-                          </div>
-                        </div>
+                        <div class="footer">
+                          <!-- Footer -->
+                          <footer
+                          class="rest"
+                          >
+                          <!-- Grid container -->
+                          <div class="container p-4 pb-0">
+                            <!-- Section: Links -->
+                            <section class="section">
+                              <div id="Contact" class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                                <h6 class="fact4">Contact</h6>
+                                <div class="Email">
+                                  <p class="fact5">Email</p>
+                                  <p>
+                                    <a class="fact6" style="text-align: center">pinewood@gmail.com</a>
+                                  </p>
+                                </div>
+                                <div class="Phone number">
+                                  <p class="fact5">Phone number</p>
+                                  <p>
+                                    <a class="fact6" style="text-align: center">036...</a>
+                                  </p>
+                                  <p>
+                                    <a class="fact7"><em>Pinewood company, 2022</em></a>
+                                  </p>
+                                </div>
+                              </div>
 
-                      </div>
-                    </section>
-                    <!-- Section: Copyright -->
-                  </div>
-                  <!-- Grid container -->
-                </footer>
-              </div>
-            </body>
-            </html>
+                            </div>
+                          </section>
+                          <!-- Section: Copyright -->
+                        </div>
+                        <!-- Grid container -->
+                      </footer>
+                    </div>
+                  </body>
+                  </html>

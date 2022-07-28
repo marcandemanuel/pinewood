@@ -6,6 +6,39 @@
   <title>CSS Basics</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
+  function moveScroller() {
+    var $anchor = $("#scroller-anchor");
+    var $scroller = $('#scroller');
+
+    var move = function() {
+      var st = $(window).scrollTop();
+      var ot = $anchor.offset().top;
+      if(st > ot) {
+        $scroller.css({
+          position: "fixed",
+          top: "0px"
+        });
+      } else {
+        $scroller.css({
+          position: "relative",
+          top: ""
+        });
+      }
+    };
+    $(window).scroll(move);
+    move();
+  }
+  $(window).scroll(function(e){ 
+    var $el = $('.storyImg'); 
+    var isPositionFixed = ($el.css('position') == 'fixed');
+    if ($(this).scrollTop() > 305 && !isPositionFixed){
+      console.log("setting fixed");
+      $el.css({'position': 'fixed', 'top': '146px', 'width': '50%'}); 
+    }
+    if ($(this).scrollTop() < 305 && isPositionFixed){
+      $el.css({'position': 'static', 'top': '146px', 'width': '100%', 'margin-right': '0px'}); 
+    } 
+  });
   $(document).ready(function(){
   // Add smooth scrolling to all links
   $("a").on('click', function(event) {
@@ -219,17 +252,21 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    border: 40px;
-    height: 559px;
+    border-width: 3px;
+    border-style: solid;
+    height: 300px;
     border-color: rgb(0, 0, 0);
 
   }
   .bgimg-1 {
     background-image: url("images/d.jpg");
+    border-radius: 10px;
+    border-color: white;
   }
   .bgimg-2 {
     background-image: url("images/p.jpg");
-    border-style: solid;
+    border-radius: 10px;
+    border-color: white;
   }
   .bgimg-3 {
     background-image: url("images/n.jpg");
@@ -293,10 +330,15 @@
     padding: 0px;
     text-align: center;
   }
+  .paragraph {
+    font-size: 20px;
+    font-family: andalus;
+  }
 
   body, html {
     height: 100%;
     margin: 0;
+    background-color: rgb(40, 20, 0);
   }
   @media only screen and (max-device-width: 1024px) {
     .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
@@ -315,7 +357,7 @@
       <div id="scroller-anchor"></div> 
       <div id="scroller">
         <div class="navbar">
-          <a class="active" href="#home">Home</a>
+          <a class="active" href="index.html">Home</a>
           <div class="dropdown">
             <button class="dropbtn"><a href="shop.html" style="padding: 0;background-color: rgba(20, 10, 0, 0)">Shop</a>
               <i class="fa fa-caret-down"></i>
@@ -334,74 +376,67 @@
     </div>
   </div>
   <div class="buu"></div>
-  <div class="bgimg-1">
-    <div><a class="caption" href="shop.html">
-      <div class="des">
-        <h2 class="fact" style="text-align: center;font-family: andalus"><strong>Shop</strong><p class="fact2">Buy Pinewood products by discounted prices!</p></h2>
-      </div>
-    </a>
-  </div>
-</div>
-
-<div class="bgimg-2" style="border-width: 10px;border-color: rgb(255, 255, 255)">
-  <div><a href="delivery.html" class="caption">
-    <div class="des">
-      <h2 class="fact" style="text-align: center;font-family: andalus"><strong>Delivery</strong><p class="fact2">Find out the most important information about shipping.</p></h2>
+  <div>
+    <table style="border: 0;margin: 0;padding: 0">
+      <tr style="height: 300px;width: 100%">
+        <th style="width: 50%; height: 300px;position: fixed;top: 146px;z-index: 100">
+          <div class="bgimg-1"></div>
+        </th>
+        <th style="width: 50%;top: 146px;height: 300px;position: fixed;float: right;text-align: center">
+          <div>
+            <h3>Our story</h3>
+            <p style="font-size: 15px">Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood.</p>
+          </div>
+        </th>
+      </tr>
+      <tr style="height: 300px;margin: 0px;width: 50%">
+        <th style="width: 50%; height: 300px;position: relative;border-width: 3px;border-style: solid; border-color: rgba(0, 0, 0, 0)">
+          <div>
+            <h3>Our story</h3>
+            <p style="font-size: 15px">Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood. Pinewood.</p>
+          </div>
+        </th>
+        <th class="storyImg" style="height: 300px;position: relative;margin: 0px">
+          <div class="bgimg-2"></div>
+        </th>
+      </tr>
+      <table/>
     </div>
-  </div>
-</a>
-</div>
 
-<div class="bgimg-3">
-  <div><a href="news.html" class="caption">
-    <div class="des">
-      <h2 class="fact" style="text-align: center;font-family: andalus"><strong>Discounts and news</strong><p class="fact2">Get the latest Pinewood news.</p></h2>
-    </div>
-  </div>
-</a>
-</div>
+    <div class="footer" style="position: relative;z-index: 1000">
+      <!-- Footer -->
+      <footer
+      class="rest"
+      >
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: Links -->
+        <section class="section">
+          <div id="Contact" class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="fact4">Contact</h6>
+            <div class="Email">
+              <p class="fact5">Email</p>
+              <p>
+                <a class="fact6" style="text-align: center">pinewood@gmail.com</a>
+              </p>
+            </div>
+            <div class="Phone number">
+              <p class="fact5">Phone number</p>
+              <p>
+                <a class="fact6" style="text-align: center">036...</a>
+              </p>
+              <p>
+                <a class="fact7"><em>Pinewood company, 2022</em></a>
+              </p>
+            </div>
+          </div>
 
-<div class="bgimg-4" style="border-width: 10px;border-color: rgb(255, 255, 255)">
-  <div><a href="story.html" class="caption">
-    <div class="des">
-      <h2 class="fact" style="text-align: center;font-family: andalus"><strong>About us</strong><p class="fact2">Get to know the story of the Pinewood company.</p></h2>
-    </div>
-  </div>
-</a>
-</div>
-<div class="footer">
-  <!-- Footer -->
-  <footer
-  class="rest"
-  >
-  <!-- Grid container -->
-  <div class="container p-4 pb-0">
-    <!-- Section: Links -->
-    <section class="section">
-      <div id="Contact" class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-        <h6 class="fact4">Contact</h6>
-        <div class="Email">
-          <p class="fact5">Email</p>
-          <p>
-            <a class="fact6" style="text-align: center">pinewood@gmail.com</a>
-          </p>
         </div>
-        <div class="Phone number">
-          <p class="fact5">Phone number</p>
-          <p>
-            <a class="fact6" style="text-align: center">036...</a>
-          </p>
-            <a class="fact7"><em>Pinewood company, 2022</em></a>
-          </p>
-        </div>
-      </div>
-
+      </section>
+      <!-- Section: Copyright -->
     </div>
-  </section>
-  <!-- Section: Copyright -->
-</div>
-<!-- Grid container -->
-</footer>
+    <!-- Grid container -->
+  </footer>
 </div>
 </body>
 </html>

@@ -1,35 +1,10 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
   <title>Pinewood</title>
   <meta charset="utf-8">
   <title>CSS Basics</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script>
-  $(document).ready(function(){
-  // Add smooth scrolling to all links
-  $("a").on('click', function(event) {
-
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 0, function(){
-
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
-});
+  <script type="text/javascript">
   </script>
   <style>
   html {
@@ -219,13 +194,17 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    border: 40px;
-    height: 559px;
-    border-color: rgb(0, 0, 0);
+    border-width: 5px;
+    border-radius: 20px;
+    height: 100px;
+    width: 50%;
+    text-align: center;
+    border-color: white;
 
   }
   .bgimg-1 {
     background-image: url("images/d.jpg");
+    border-style: solid;
   }
   .bgimg-2 {
     background-image: url("images/p.jpg");
@@ -297,14 +276,38 @@
   body, html {
     height: 100%;
     margin: 0;
+    background-image: url("images/pine.jpg");
+    position: relative;
+    background-attachment: fixed;
   }
   @media only screen and (max-device-width: 1024px) {
     .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
       background-attachment: scroll;
     }
   }
-  </style>
+  input[type=text], select {
+    padding: 12px 20px;
+    margin: 8px 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
 
+  input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  </style>
 </head>
 <body>
   <div class="header-container">
@@ -323,7 +326,7 @@
             <div class="dropdown-content">
               <a href="#">Table</a>
               <a href="#">Bed</a>
-              <a href="#">Sold out</a>
+              <a href="shop.html#soldout">Sold out</a>
             </div>
           </div>
           <a href="delivery.html">Delivery</a>
@@ -334,73 +337,74 @@
     </div>
   </div>
   <div class="buu"></div>
-  <div class="bgimg-1">
-    <div><a class="caption" href="shop.html">
-      <div class="des">
-        <h2 class="fact" style="text-align: center;font-family: andalus"><strong>Shop</strong><p class="fact2">Buy Pinewood products by discounted prices!</p></h2>
+
+  <div style="text-align: center"> 
+    <form method="post" action="mailto:marcandemanuel@gmail.com" > 
+      <div style="width: 100%;padding-top: 20px;font-family: andalus;font-size: 25px;color: white">
+        <label for="fname">Name</label>
       </div>
-    </a>
-  </div>
-</div>
-
-<div class="bgimg-2" style="border-width: 10px;border-color: rgb(255, 255, 255)">
-  <div><a href="delivery.html" class="caption">
-    <div class="des">
-      <h2 class="fact" style="text-align: center;font-family: andalus"><strong>Delivery</strong><p class="fact2">Find out the most important information about shipping.</p></h2>
+      <div style="width: 100%">
+        <input style="width: 50%" type="text" id="fname" name="firstname" placeholder="Your first name...">
+      </div>
+      <div style="width: 100%">
+        <input style="width: 50%" type="text" id="fname" name="firstname" placeholder="Your last name...">
+      </div>
+      <div style="width: 100%;padding-top: 20px;font-family: andalus;font-size: 25px;color: white">
+        <label for="addres">Addres</label>
+      </div>
+      <div style="width: 100%">
+        <input style="width: 50%" type="text" id="addres" name="addres" placeholder="Your addres...">
+      </div>
+      <div style="width: 100%">
+        <input style="width: 50%" type="text" id="addres" name="addres" placeholder="Zip code...">
+      </div>
+      <div style="width: 100%;padding-top: 20px;font-family: andalus;font-size: 25px;color: white">
+        <label for="eaddres">Contact</label>
+      </div>
+      <div style="width: 100%">
+        <input style="width: 50%" type="text" id="eaddres" name="eaddres" placeholder="Your email addres...">
+      </div>
+      <div style="width: 100%">
+        <input style="width: 50%" type="text" id="eaddres" name="eaddres" placeholder="Your phone number...">
+      </div>
+      <div style="text-align: center">
+        <div style="margin: 20px" class="bgimg-1"></div>
+      </div>
+      <input style="width: 50%" type="submit" value="Submit" style="margin: 10px">
+</form>
     </div>
-  </div>
-</a>
-</div>
+    <div class="footer">
+      <!-- Footer -->
+      <footer
+      class="rest"
+      >
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: Links -->
+        <section class="section">
+          <div id="Contact" class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="fact4">Contact</h6>
+            <div class="Email">
+              <p class="fact5">Email</p>
+              <p>
+                <a class="fact6" style="text-align: center">pinewood@gmail.com</a>
+              </p>
+            </div>
+            <div class="Phone number">
+              <p class="fact5">Phone number</p>
+              <p>
+                <a class="fact6" style="text-align: center">036...</a>
+              </p>
+              <a class="fact7"><em>Pinewood company, 2022</em></a>
+            </p>
+          </div>
+        </div>
 
-<div class="bgimg-3">
-  <div><a href="news.html" class="caption">
-    <div class="des">
-      <h2 class="fact" style="text-align: center;font-family: andalus"><strong>Discounts and news</strong><p class="fact2">Get the latest Pinewood news.</p></h2>
-    </div>
+      </div>
+    </section>
+    <!-- Section: Copyright -->
   </div>
-</a>
-</div>
-
-<div class="bgimg-4" style="border-width: 10px;border-color: rgb(255, 255, 255)">
-  <div><a href="story.html" class="caption">
-    <div class="des">
-      <h2 class="fact" style="text-align: center;font-family: andalus"><strong>About us</strong><p class="fact2">Get to know the story of the Pinewood company.</p></h2>
-    </div>
-  </div>
-</a>
-</div>
-<div class="footer">
-  <!-- Footer -->
-  <footer
-  class="rest"
-  >
   <!-- Grid container -->
-  <div class="container p-4 pb-0">
-    <!-- Section: Links -->
-    <section class="section">
-      <div id="Contact" class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-        <h6 class="fact4">Contact</h6>
-        <div class="Email">
-          <p class="fact5">Email</p>
-          <p>
-            <a class="fact6" style="text-align: center">pinewood@gmail.com</a>
-          </p>
-        </div>
-        <div class="Phone number">
-          <p class="fact5">Phone number</p>
-          <p>
-            <a class="fact6" style="text-align: center">036...</a>
-          </p>
-            <a class="fact7"><em>Pinewood company, 2022</em></a>
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-  <!-- Section: Copyright -->
-</div>
-<!-- Grid container -->
 </footer>
 </div>
 </body>

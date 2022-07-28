@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Pinewood</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.png">
   <meta charset="utf-8">
   <title>CSS Basics</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -224,29 +225,29 @@
   }
   .bgimg-1 {
     background-image: url("images/d.jpg");
-    min-height: 50%;
+    height: 331px;
   }
   .bgimg-2 {
     background-image: url("images/j.jpg");
-    min-height: 50%;
+    height: 331px;
     border-style: solid;
   }
   .bgimg-3 {
     background-image: url("images/n.jpg");
-    min-height: 50%;
+    height: 331px;
   }
   .bgimg-4 {
     background-image: url("images/r.jpg");
-    min-height: 50%;
+    height: 331px;
     border-style: solid;
   }
   .bgimg-5 {
     background-image: url("images/u.jpg");
-    min-height: 50%;
+    height: 331px;
   }
   .bgimg-6 {
     background-image: url("images/k.jpg");
-    min-height: 50%;
+    height: 331px;
     border-style: solid;
   }
   .caption {
@@ -338,55 +339,77 @@
 </head>
 <body>
   <div class="header-container">
-    <div class="title-container" style="height: 100px">
-      <h1>Pinewood</h1>
-    </div>
-    <div id="sidebar"> 
-      <div id="scroller-anchor"></div> 
-      <div id="scroller">
-        <div class="navbar">
-          <a href="index.html">Home</a>
-          <div class="dropdown">
-            <button class="dropbtn">Shop
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-              <a href="#">Table</a>
-              <a href="#">Bed</a>
-              <a href="#">Sold out</a>
-            </div>
-          </div>
-          <a href="news.html">Delivery</a>
-          <a href="delivery.html">News</a>
-          <a href="#Contact">Contact</a>
-        </div> 
-      </div>
-    </div>
-  </div>
-  <div class="buu"></div>
-  <table id="customers">
-    <tr>
-      <th class="style">Tables and others</th>
-      <th>All of these furnitures are under 5000$. These furnitures don't have accesories.</th>
-    </tr>
-    <table/>
-
-    <div class="bgimg-1">
-      <div><a class="caption" href="shop.html">
-        <div class="des">
-          <h2 class="fact" style="text-align: center">Oak Table<p class="fact2">4000$</p></h2>
+<div class="title-container" style="height: 100px">
+  <h1>Pinewood</h1>
+</div>
+<div id="sidebar"> 
+  <div id="scroller-anchor"></div> 
+  <div id="scroller">
+    <div class="navbar">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn"><a href="#shop" style="padding: 0;background-color: rgba(20, 10, 0, 0)">Shop</a>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Table</a>
+          <a href="#">Bed</a>
+          <a href="#">Sold out</a>
         </div>
-      </a>
-    </div>
-  </div>
-
-  <div class="bgimg-2" style="border-width: 0px;border-top-width: 10px;border-color: rgb(255, 255, 255)">
-    <div><a href="delivery.html" class="caption">
-      <div class="des">
-        <h2 class="fact" style="text-align: center">Breakfast Table<p class="fact2">3000$</p></h2>
       </div>
-    </div>
-  </a>
+      <a href="delivery.html">Delivery</a>
+      <a href="news.html">News</a>
+      <a href="#Contact">Contact</a>
+    <p id="timer" style="color: white;font-size: 16px;padding: 14px 0px;margin: 0"></p>
+    <script>
+// Set the date we're counting down to
+var countDownDate = new Date("Aug 15, 2022 00:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Output the result in an element with id="demo"
+  document.getElementById("timer").innerHTML = days + " : " + hours + " : "
+  + minutes + " : " + seconds;
+
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("timer").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+    </div> 
+  </div>
+</div>
+</div>
+<div class="buu"></div>
+<table id="customers">
+  <tr>
+    <th class="style">Tables and others</th>
+    <th>All of these furnitures are under 5000$. These furnitures don't have accesories.</th>
+  </tr>
+  <table/>
+
+  <div class="bgimg-1">
+    <div><a class="caption" href="oak-table.html">
+      <div class="des">
+        <h2 class="fact" style="text-align: center;font-family: andalus"><strong>Oak Table</strong><p class="fact2">4000$</p></h2>
+      </div>
+    </a>
+  </div>
 </div>
 <table id="customers">
   <tr>
@@ -397,42 +420,33 @@
   <div class="bgimg-3" style="border-width: 10px;border-color: rgb(255, 255, 255)">
     <div><a href="epoxy-table.html" class="caption">
       <div class="des">
-        <h2 class="fact" style="text-align: center">Epoxy Table<p class="fact2">8000$</p></h2>
+        <h2 class="fact" style="text-align: center;font-family: andalus"><strong>Nyír Polc</strong><p class="fact2">8000$</p></h2>
       </div>
     </div>
   </a>
 </div>
 
 <div class="bgimg-4" style="border-width: 0px;border-top-width: 10px;border-color: rgb(255, 255, 255)">
-  <div><a href="news.html" class="caption">
+  <div><a href="volcano.html" class="caption">
     <div class="des">
-      <h2 class="fact" style="border: 0px;box-shadow: 20px">Broken Bed<p class="fact2">6000$</p></h2>
+      <h2 class="fact" style="text-align: center;font-family: andalus"><strong>Volcano Table</strong><p class="fact2">6000$</p></h2>
     </div>
   </div>
 </a>
 </div>
 <table id="customers">
   <tr>
-    <th class="style">Sold out</th>
+    <th id="soldout" class="style">Sold out</th>
     <th>These furnitures are out of stock. But maybe some people are intrested in our first furnitures</th>
   </tr>
   <table/>
   <div class="bgimg-5" style="border-width: 10px;border-color: rgb(255, 255, 255)">
-    <div><a href="delivery.html" class="caption">
+    <div><a href="pine-chair.html" class="caption">
       <div class="des">
-        <h2 class="fact" style="text-align: center">Nyír polc<p class="fact2">4000$</p></h2>
+        <h2 class="fact" style="text-align: center;font-family: andalus"><strong>Pine Chair</strong><p class="fact2">4000$</p></h2>
       </div>
     </div>
   </a>
-</div>
-
-<div class="bgimg-6" style="border-width: 0px;border-top-width: 10px;border-color: rgb(255, 255, 255)">
-  <div><a href="news.html" class="caption">
-    <div class="des">
-      <h2 class="fact" style="border: 0px;box-shadow: 20px">X-bed<p class="fact2">2000$</p></h2>
-    </div>
-  </div>
-</a>
 </div>
 <div class="footer">
   <!-- Footer -->

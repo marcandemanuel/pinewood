@@ -19,17 +19,17 @@
     else {
       image.src = "images/l.jpg";
     }
-    if (imageChecked2) {
-      imageChecked2 = false;
+    if (imageChecked) {
+      imageChecked = false;
       const element = document.getElementById("demo2");
       element.remove();
       image.src = "images/w.png";
     } else {
-      imageChecked2 = true;
-      document.querySelector('#foo').insertAdjacentHTML(
+      imageChecked = true;
+      document.querySelector('#imageBox').insertAdjacentHTML(
         'afterbegin',
         `<div class="row" id="demo2">
-        <label><p style="padding: 20px;line-height: 25px;font-size: 15px;cursor: pointer" onclick="myFunction()">This is a very good lamp, and if you buy this until August 15, you will get a volcano lamp for the volcano table, and 1500$ discount.</p></label>
+        <label><p style="padding: 20px;line-height: 25px;font-size: 15px;cursor: pointer" onclick="buyA2()">This is a very good lamp, and if you buy this until August 15, you will get a volcano lamp for the volcano table, and 1500$ discount.</p></label>
         </div>`      
         )
     }
@@ -49,10 +49,10 @@
       image.src = "images/w.png";
     } else {
       imageChecked2 = true;
-      document.querySelector('#poo').insertAdjacentHTML(
+      document.querySelector('#imageBox2').insertAdjacentHTML(
         'afterbegin',
         `<div class="row" id="demo3">
-        <label><p style="padding: 20px;line-height: 25px;font-size: 15px;cursor: pointer" onclick="myFunction()">This is a very good lamp, and if you buy this until August 15, you will get a volcano lamp for the volcano table, and 1500$ discount.</p></label>
+        <label><p style="padding: 20px;line-height: 25px;font-size: 15px;cursor: pointer" onclick="buyA2()">This is a very good lamp, and if you buy this until August 15, you will get a volcano lamp for the volcano table, and 1500$ discount.</p></label>
         </div>`      
         )
     }
@@ -60,27 +60,27 @@
   function removeRow (input) {
     input.parentNode.remove()
   }
-  function myFunction() {
+  function buyAccesory2() {
     if (firstItemChecked) {
       firstItemChecked = false;
       cost -= 500;
-      document.getElementById('foo3').style.cssText = 'border-color: rgb(0, 0, 0);color: black;font-size: 20px;padding: 0px;margin: 10px 20px';
+      document.getElementById('lampBox').style.cssText = 'border-color: rgb(0, 0, 0);color: black;font-size: 20px;padding: 0px;margin: 10px 20px';
     } else {
       firstItemChecked = true;
       cost += 500;
-      document.getElementById('foo3').style.cssText = 'border-color: rgb(0, 0, 255);color: black;font-size: 20px;padding: 0px;margin: 10px 20px;box-shadow: 0px 0px 0px 3px #339DE6';
+      document.getElementById('lampBox').style.cssText = 'border-color: rgba(0, 0, 255, 0.75);color: black;font-size: 20px;padding: 0px;margin: 10px 20px';
     }
     document.getElementById("demo").innerHTML = cost;
   }
-  function myx() {
+  function buyAccesory() {
     if (secondItemChecked) {
       secondItemChecked = false;
       cost -= 300;
-      document.getElementById('foo2').style.cssText = 'border-color: rgb(0, 0, 0);color: black;font-size: 20px;padding: 0px;margin: 10px 20px';
+      document.getElementById('coasterBox').style.cssText = 'border-color: rgb(0, 0, 0);color: black;font-size: 20px;padding: 0px;margin: 10px 20px';
     } else {
       secondItemChecked = true;
       cost += 300;
-      document.getElementById('foo2').style.cssText = 'border-color: rgb(0, 0, 255);color: black;font-size: 20px;padding: 0px;margin: 10px 20px;box-shadow: 0px 0px 0px 3px #339DE6';
+      document.getElementById('coasterBox').style.cssText = 'border-color: rgba(0, 0, 255, 0.75);color: black;font-size: 20px;padding: 0px;margin: 10px 20px';
     }
     document.getElementById("demo").innerHTML = cost;
   }
@@ -405,13 +405,13 @@
   th {
     padding: 0px;
   }
-  .parag2 {
+  .accesories {
     font-size: 60px;
     font-family: andalus;
     text-align: center;
     padding: 5px;
   }
-  .farag3 {
+  .lampBox {
     line-height: 5px;
     font-size: 30px;
     font-family: andalus;
@@ -425,9 +425,38 @@
     padding-left: 0px;
     margin: 10px;
   }
-  .farag4 {
-    line-height: 0px;
+  .coasterBox {
+    line-height: 5px;
     font-size: 30px;
+    font-family: andalus;
+    text-align: left;
+    padding: 0px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    border-radius: 10px;
+    text-align: center;
+    padding-left: 0px;
+    margin: 10px;
+  }
+  .firstButton {
+    line-height: 0px;
+    font-family: andalus;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgba(40, 160, 10, 0.5);
+    border-radius: 10px;
+    text-align: center;
+    color: rgba(40, 160, 10, 0.5);
+    font-size: 20px;
+    padding: 0px;
+    margin: 120px 20px;
+    margin-bottom: 20px;
+    background-color: rgba(50, 200, 10, 0.75);
+  }
+  .secondButton {
+    line-height: 0px;
+    font-size: 20px;
     font-family: andalus;
     text-align: left;
     padding: 0px;
@@ -436,8 +465,14 @@
     border-color: rgb(29, 94, 4);
     border-radius: 10px;
     text-align: center;
-    padding-left: 0px;
-    margin: 10px;
+    margin: 0px 20px;
+    color: rgb(29, 94, 4);
+    padding: 0px;
+    background-color: rgb(62, 204, 6)
+  }
+  .preOrder {
+    font-size: 15px;
+    color: rgba(0, 0, 255, 0.6);
   }
   html table {
     line-height: 30px;
@@ -501,27 +536,32 @@
                       <ul/>
                     </div>
                     <div style="text-align: center">
-                      <h3 class="parag2" style="color: black">Accesories<h3/>
-                        <div id="foo2" class="farag3" style="color: black;font-size: 20px;padding: 0px;margin: 10px 20px">
-                          <p onclick="myx()" style="padding-top: 10px;cursor: pointer">+300$: Coasters<p/>
-                            <div id="poo"></div>
-                            <div style="margin: 0px;padding-bottom: 10px;cursor: pointer">
-                              <img id="image2" onclick="addRow2()" src="images/w.png" style="width: 20px;margin: 0px">
+                      <h3 class="accesories" style="color: black">Accesories<h3/>
+                        <div id="coasterBox" class="coasterBox" style="color: black;font-size: 20px;padding: 0px;margin: 10px 20px">
+                          <p onclick="buyAccesory()" style="padding-top: 10px;cursor: pointer">+300$: Coasters<p/>
+                            <div id="imageBox2"></div>
+                            <div style="margin: 0px;padding-bottom: 10px">
+                              <img id="image2" onclick="addRow2()" src="images/w.png" style="width: 20px;margin: 0px;cursor: pointer">
                             </div>
                           </div>
-                          <div id="foo3" class="farag3" style="color: black;font-size: 20px;padding: 0px;margin: 10px 20px">
-                            <p style="padding-top: 10px;cursor: pointer"><span onclick="myFunction()">+500$: Lamp </span>
-                              <a href="news.html" style="color: black;font-size: 20px">(Discount)</a>
+                          <div id="lampBox" class="lampBox" style="color: black;font-size: 20px;padding: 0px;margin: 10px 20px">
+                            <p onclick="buyAccesory2()" style="padding-top: 10px;cursor: pointer">+500$: Lamp 
+                              <a href="#" style="color: black;font-size: 20px">(Discount)</a>
                               <p/>
-                              <div id="foo"></div>
-                              <div style="margin: 0px;padding-bottom: 10px;cursor: pointer">
-                                <img id="image" onclick="addRow()" src="images/w.png" style="width: 20px;margin: 0px">
+                              <div id="imageBox"></div>
+                              <div style="margin: 0px;padding-bottom: 10px">
+                                <img id="image" onclick="addRow()" src="images/w.png" style="width: 20px;margin: 0px;cursor: pointer">
                               </div>
                             </div>
-                            <a href="check-out.html" style="color: rgb(29, 94, 4)"><div class="farag4" style="color: rgb(29, 94, 4);font-size: 20px;padding: 0px;margin: 120px 20px;background-color: rgb(62, 204, 6)">
+                            <span><div class="firstButton" style="">
                               <p style="padding: 15px;margin: 15px;font-size: 40px">Add to cart<p/>
                                 <span style="margin: 0px;padding-bottom: 20px"><span id="demo">8000</span><span>$</span></span>
+                              </div></span>
+                              <a href="check-out.html" style="color: rgb(29, 94, 4)"><div class="secondButton">
+                              <p style="padding: 15px;margin: 15px;font-size: 40px">Pre-order<p/>
+                                <span style="margin: 0px;padding-bottom: 20px">5$</span>
                               </div></a>
+                              <a href="about_preorder" class="preOrder">About pre-order</a>
                             </div>
                           </th>
                         </tr>

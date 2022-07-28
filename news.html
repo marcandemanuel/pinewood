@@ -1,11 +1,44 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>Challenge: Pinewood</title>
+  <title>Pinewood</title>
   <meta charset="utf-8">
   <title>CSS Basics</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
+  function moveScroller() {
+    var $anchor = $("#scroller-anchor");
+    var $scroller = $('#scroller');
+
+    var move = function() {
+      var st = $(window).scrollTop();
+      var ot = $anchor.offset().top;
+      if(st > ot) {
+        $scroller.css({
+          position: "fixed",
+          top: "0px"
+        });
+      } else {
+        $scroller.css({
+          position: "relative",
+          top: ""
+        });
+      }
+    };
+    $(window).scroll(move);
+    move();
+  }
+  $(window).scroll(function(e){ 
+    var $el = $('.baf'); 
+    var isPositionFixed = ($el.css('position') == 'fixed');
+    if ($(this).scrollTop() > 450 && !isPositionFixed){
+      console.log("setting fixed");
+      $el.css({'position': 'fixed', 'top': '146px'}); 
+    }
+    if ($(this).scrollTop() < 450 && isPositionFixed){
+      $el.css({'position': 'static', 'top': '146px'}); 
+    } 
+  });
 
   function moveScroller() {
     var $anchor = $("#scroller-anchor");
@@ -30,14 +63,80 @@
     move();
   }
   $(window).scroll(function(e){ 
-    var $el = $('.navbar'); 
+    var $el = $('.bab'); 
     var isPositionFixed = ($el.css('position') == 'fixed');
-    if ($(this).scrollTop() > 100 && !isPositionFixed){
+    if ($(this).scrollTop() > 900 && !isPositionFixed){
       console.log("setting fixed");
-      $el.css({'position': 'fixed', 'top': '0px'}); 
+      $el.css({'position': 'fixed', 'top': '146px'}); 
     }
-    if ($(this).scrollTop() < 100 && isPositionFixed){
-      $el.css({'position': 'static', 'top': '0px'}); 
+    if ($(this).scrollTop() < 900 && isPositionFixed){
+      $el.css({'position': 'static', 'top': '146px'}); 
+    } 
+  });
+  function moveScroller() {
+    var $anchor = $("#scroller-anchor");
+    var $scroller = $('#scroller');
+
+    var move = function() {
+      var st = $(window).scrollTop();
+      var ot = $anchor.offset().top;
+      if(st > ot) {
+        $scroller.css({
+          position: "fixed",
+          top: "0px"
+        });
+      } else {
+        $scroller.css({
+          position: "relative",
+          top: ""
+        });
+      }
+    };
+    $(window).scroll(move);
+    move();
+  }
+  $(window).scroll(function(e){ 
+    var $el = $('.bah'); 
+    var isPositionFixed = ($el.css('position') == 'fixed');
+    if ($(this).scrollTop() > 1350 && !isPositionFixed){
+      console.log("setting fixed");
+      $el.css({'position': 'fixed', 'top': '146px'}); 
+    }
+    if ($(this).scrollTop() < 1350 && isPositionFixed){
+      $el.css({'position': 'static', 'top': '146px'}); 
+    } 
+  });
+  function moveScroller() {
+    var $anchor = $("#scroller-anchor");
+    var $scroller = $('#scroller');
+
+    var move = function() {
+      var st = $(window).scrollTop();
+      var ot = $anchor.offset().top;
+      if(st > ot) {
+        $scroller.css({
+          position: "fixed",
+          top: "0px"
+        });
+      } else {
+        $scroller.css({
+          position: "relative",
+          top: ""
+        });
+      }
+    };
+    $(window).scroll(move);
+    move();
+  }
+  $(window).scroll(function(e){ 
+    var $el = $('.bao'); 
+    var isPositionFixed = ($el.css('position') == 'fixed');
+    if ($(this).scrollTop() > 1800 && !isPositionFixed){
+      console.log("setting fixed");
+      $el.css({'position': 'fixed', 'top': '146px'}); 
+    }
+    if ($(this).scrollTop() < 1800 && isPositionFixed){
+      $el.css({'position': 'static', 'top': '146px'}); 
     } 
   });
   $(document).ready(function(){
@@ -115,24 +214,23 @@
   }
   a {
     text-decoration: none;
-    color: white
+    color: white;
   }
   h1 {
     color: white;
     margin: 0;
   }
   .title-container {
-    background-image: url('k.jpg');
+    background-image: url('images/k.jpg');
     background-size: cover;
   }
   .title-container2 {
-    background-image: url('a.jpg');
+    background-image: url('images/a.jpg');
     background-size: cover;
     font-family: andalus;
   }
   .fact {
-    border-top: 1px solid rgb(222, 222, 222);
-    border-bottom: 1px solid rgb(222, 222, 222);
+    border: 0;
     padding-top: 30px;
     padding-bottom: 30px;
     padding-left: 50px;
@@ -171,8 +269,7 @@
     background-color: rgb(20, 10, 0);
   }
   .navbar { 
-    z-index: 20;
-    position: fixed;   
+    z-index: 20;   
     display: flex;
     float: left;
     font-size: 16px;
@@ -183,6 +280,11 @@
     background-color: rgb(20, 10, 0);
     padding-top: 0px;
     padding-bottom: 0px;
+  }
+  .header-container { 
+    z-index: 20;
+    position: fixed;   
+    background-color: rgb(20, 10, 0);
   }
 
   .dropdown {
@@ -232,10 +334,6 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
-  .buu {
-    padding: 23px;
-    background-color: rgb(20, 10, 0);
-  }
   .navbar a.active {
     background-color: rgb(120, 60, 0);
   }
@@ -250,25 +348,24 @@
     background-repeat: no-repeat;
     background-size: cover;
     border: 40px;
+    height: 450px;
     border-color: rgb(0, 0, 0);
 
   }
   .bgimg-1 {
-    background-image: url("d.jpg");
-    min-height: 80%;
+    background-image: url("images/d.jpg");
+    border-style: solid;
   }
   .bgimg-2 {
-    background-image: url("p.jpg");
-    min-height: 80%;
+    background-image: url("images/p.jpg");
     border-style: solid;
   }
   .bgimg-3 {
-    background-image: url("n.jpg");
-    min-height: 80%;
+    background-image: url("images/n.jpg");
+    border-style: solid;
   }
   .bgimg-4 {
-    background-image: url("4.jpg");
-    min-height: 80%;
+    background-image: url("images/4.jpg");
     border-style: solid;
   }
   .caption {
@@ -279,7 +376,7 @@
     color: #000;
   }
   .des {
-    padding: 185px;
+    padding: 151.5px;
     box-shadow: 20px;
   }
   .fact4 {
@@ -326,10 +423,16 @@
     padding: 0px;
     text-align: center;
   }
+  .footer {
+    z-index: 100;
+    background-color: rgb(20, 10, 0);
+    height: 100%
+  }
 
   body, html {
     height: 100%;
     margin: 0;
+    background-color: white;
   }
   @media only screen and (max-device-width: 1024px) {
     .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
@@ -340,68 +443,84 @@
 
 </head>
 <body>
-  <div class="title-container" style="height: 100px">
-    <h1>Pinewood</h1>
-  </div>
-  <div class="fixedElement">
+  <div class="header-container">
+    <div class="title-container" style="height: 100px">
+      <h1>Pinewood</h1>
+    </div>
     <div id="sidebar"> 
       <div id="scroller-anchor"></div> 
       <div id="scroller">
         <div class="navbar">
-          <a class="active" href="#home">Home</a>
+          <a href="index.html">Home</a>
           <div class="dropdown">
-            <button class="dropbtn">Shop
+            <button class="dropbtn"><a href="shop.html" style="padding: 0;background-color: rgba(20, 10, 0, 0)">Shop</a>
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
               <a href="#">Table</a>
-              <a href="#">Bed</a>
+              <a href="shop.html#soldout">Bed</a>
               <a href="#">Sold out</a>
             </div>
           </div>
-          <a href="News.html">Delivery</a>
-          <a href="Delivery.html">News</a>
+          <a href="delivery.html">Delivery</a>
+          <a class="active" href="#news">News</a>
           <a href="#Contact">Contact</a>
         </div> 
       </div>
     </div>
   </div>
-  <div class="buu"></div>
-  <div class="bgimg-1">
-    <div><a class="caption" href="Projets.html">
-      <div class="des">
-        <h2 class="fact" style="text-align: center">Shop<p class="fact2">Buy Pinewood products by discounted prices!</p></h2>
+  <div style="padding: 73px"></div>
+  <div style="height: 450px">
+  <div style="position: fixed;width: 100%">
+    <div class="bgimg-1" style="border-width: 0px;border-top-width: 10px;border-color: white">
+      <div><a class="caption" href="shop.html">
+        <div class="des">
+          <h2 class="fact" style="text-align: center;font-family: andalus"><strong>Shop</strong><p class="fact2">Buy Pinewood products by discounted prices!</p></h2>
+        </div>
+      </a>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="buu"></div>
+
+<div style="height: 450px">
+  <div class="baf" style="width: 100%">
+    <div class="bgimg-2" style="border-width: 0px;border-top-width: 10px;border-color: white;box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.3)">
+      <div><a href="delivery.html" class="caption">
+        <div class="des">
+          <h2 class="fact" style="text-align: center;font-family: andalus"><strong>Delivery</strong><p class="fact2">Find out the most important information about shipping.</p></h2>
+        </div>
       </div>
     </a>
   </div>
 </div>
-
-<div class="bgimg-2" style="border-width: 10px;border-color: rgb(255, 255, 255)">
-  <div><a href="Delivery.html" class="caption">
-    <div class="des">
-      <h2 class="fact" style="text-align: center">Delivery<p class="fact2">Find out the most important information about shipping.</p></h2>
-    </div>
-  </div>
-</a>
 </div>
-
-<div class="bgimg-3">
-  <div><a href="News.html" class="caption">
-    <div class="des">
-      <h2 class="fact" style="border: 0px;box-shadow: 20px">Discounts and news<p class="fact2">Get the latest Pinewood news.</p></h2>
-    </div>
+<div style="height: 450px">
+  <div class="bab" style="width: 100%">
+    <div class="bgimg-3" style="border-width: 0px;border-top-width: 10px;border-color: white;box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.3)">
+      <div><a href="news.html" class="caption">
+        <div class="des">
+          <h2 class="fact" style="text-align: center;font-family: andalus"><strong>Discounts and news</strong><p class="fact2">Get the latest Pinewood news.</p></h2>
+        </div>
+      </div>
+    </a>
   </div>
-</a>
 </div>
-
-<div class="bgimg-4" style="border-width: 10px;border-color: rgb(255, 255, 255)">
-  <div><a href="Story.html" class="caption">
-    <div class="des">
-      <h2 class="fact" style="text-align: center">About us<p class="fact2">Get to know the story of the Pinewood company.</p></h2>
-    </div>
+</div>
+<div style="height: 450px">
+  <div class="bah" style="width: 100%">
+    <div class="bgimg-4" style="border-width: 0px;border-top-width: 10px;border-color: white;box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.3)">
+      <div><a href="story.html" class="caption">
+        <div class="des">
+          <h2 class="fact" style="text-align: center;font-family: andalus"><strong>About us</strong><p class="fact2">Get to know the story of the Pinewood company.</p></h2>
+        </div>
+      </div>
+    </a>
   </div>
-</a>
 </div>
+</div>
+<div style="width: 100%;z-index: 20;position: relative;box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.7)">
 <div class="footer">
   <!-- Footer -->
   <footer
@@ -429,7 +548,7 @@
           </p>
         </div>
       </div>
-
+     </div>
     </div>
   </section>
   <!-- Section: Copyright -->

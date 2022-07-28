@@ -6,6 +6,15 @@
   <title>CSS Basics</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
+  function sendMail() {
+    var link = "marcandemanuel@gmail.com"
+             + "?cc=marcandemanuel@gmail.com"
+             + "&subject=" + encodeURIComponent("This is my subject")
+             + "&body=" + encodeURIComponent(document.getElementById('add-to-cart').value)
+    ;
+    
+    window.location.href = link;
+}
   var cost = 8000;
   var firstItemChecked = false;
   var secondItemChecked = false;
@@ -510,15 +519,15 @@
                             </div>
                           </div>
                           <div id="foo3" class="farag3" style="color: black;font-size: 20px;padding: 0px;margin: 10px 20px">
-                            <p style="padding-top: 10px;cursor: pointer"><span onclick="myFunction()">+500$: Lamp </span>
-                              <a href="news.html" style="color: black;font-size: 20px">(Discount)</a>
+                            <p onclick="myFunction()" style="padding-top: 10px;cursor: pointer">+500$: Lamp 
+                              <a href="#" style="color: black;font-size: 20px">(Discount)</a>
                               <p/>
                               <div id="foo"></div>
                               <div style="margin: 0px;padding-bottom: 10px;cursor: pointer">
                                 <img id="image" onclick="addRow()" src="images/w.png" style="width: 20px;margin: 0px">
                               </div>
                             </div>
-                            <a href="check-out.html" style="color: rgb(29, 94, 4)"><div class="farag4" style="color: rgb(29, 94, 4);font-size: 20px;padding: 0px;margin: 120px 20px;background-color: rgb(62, 204, 6)">
+                            <a onclick="sendMail(); return false" href="check-out.html" style="color: rgb(29, 94, 4)" id="add-to-cart"><div class="farag4" style="color: rgb(29, 94, 4);font-size: 20px;padding: 0px;margin: 120px 20px;background-color: rgb(62, 204, 6)">
                               <p style="padding: 15px;margin: 15px;font-size: 40px">Add to cart<p/>
                                 <span style="margin: 0px;padding-bottom: 20px"><span id="demo">8000</span><span>$</span></span>
                               </div></a>
