@@ -1,0 +1,438 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Csíki Angol</title>
+    <meta charset="utf-8">
+    <title>CSS Basics</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Add smooth scrolling to all links
+            $("a").on('click', function (event) {
+
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 0, function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+        });
+    </script>
+    <style>
+        body,
+        html {
+            margin: 0;
+            scroll-behavior: smooth;
+        }
+
+        h1 {
+            font-size: 75px;
+            text-align: center;
+            padding: 0px;
+            margin: 0px;
+            font-family: Calibri;
+        }
+
+        table {
+            width: 100%;
+            font-size: 25px;
+            text-align: center;
+            color: white
+        }
+
+        h2 a {
+            font-size: 40px;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            font-family: Calibri;
+        }
+
+        a {
+            text-decoration: none;
+            color: white
+        }
+
+        h1 {
+            color: white;
+            margin: 0;
+            background-image: url("images/header.jpg");
+            background-size: cover;
+        }
+
+        img {
+            padding: 0;
+            margin: 0;
+            width: 15px;
+        }
+
+        .title-container {
+            background-image: url('images/header.jpg');
+            background-size: cover;
+        }
+
+        .title-container2 {
+            background-image: url('images/header.jpg');
+            background-size: cover;
+            font-family: Calibri;
+        }
+
+        .fact {
+            border-top: 1px solid rgb(222, 222, 222);
+            border-bottom: 1px solid rgb(222, 222, 222);
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-left: 50px;
+            padding-right: 50px;
+            margin: 0px;
+            font-size: 40px;
+            background-size: cover;
+            background-color: white;
+            box-shadow: 0 0 10px #000000;
+        }
+
+        .fact:hover {
+            box-shadow: 0 0 20px #000000;
+        }
+
+        .fact2 {
+            font-size: 20px;
+            font-family: Calibri;
+            color: black;
+            padding: 0px;
+            margin-bottom: 0px;
+            text-align: center;
+        }
+
+        .header-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgb(63, 51, 133);
+            background-image: url("images/header.jpg");
+            z-index: 10;
+            height: 143px;
+        }
+
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 40px;
+            text-decoration: none;
+            background-color: rgb(63, 51, 133);
+        }
+
+        .navbar {
+            z-index: 20;
+            display: flex;
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 0px;
+            text-decoration: none;
+            background-color: rgb(63, 51, 133);
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        .header-container {
+            z-index: 20;
+            position: fixed;
+            background-color: rgb(63, 51, 133);
+        }
+
+        .dropdown {
+            float: center;
+            overflow: hidden;
+            padding: 0px;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 40px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: rgb(156, 119, 226);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            background-color: rgb(63, 51, 133);
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgb(156, 119, 226);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .buu {
+            padding: 73px;
+            background-color: rgb(63, 51, 133);
+        }
+
+        .navbar a.active {
+            background-color: rgb(105, 91, 167);
+        }
+
+        .navbar a.active:hover {
+            background-color: rgb(156, 119, 226);
+        }
+
+        .bgimg-1,
+        .bgimg-2,
+        .bgimg-3,
+        .bgimg-4 {
+            position: relative;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-width: 0px;
+            height: 400px;
+            border-color: rgb(255, 255, 255);
+
+        }
+
+        .bgimg-1 {
+            background-image: url("images/mernesse.jpg");
+        }
+
+        .bgimg-2 {
+            background-image: url("images/europe.jpg");
+            border-style: solid;
+        }
+
+        .bgimg-3 {
+            background-image: url("images/america-map.jpg");
+        }
+
+        .caption {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #000;
+        }
+
+        .des {
+            padding: 185px;
+            box-shadow: 20px;
+        }
+
+        .fact4 {
+            font-size: 30px;
+            color: rgb(255, 255, 255);
+            padding-top: 40px;
+            padding-bottom: 20px;
+            text-align: center;
+            margin: 0px;
+        }
+
+        .rest {
+            background-size: cover;
+            padding: 0px;
+            padding-bottom: 40px;
+            margin: 0px;
+            border: 0px;
+            background-image: url("images/header-image.jpg");
+            font-style: Calibri;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            height: 400px;
+            position: relative;
+            align-items: center;
+        }
+
+        .fact5 {
+            padding: 0px;
+            margin: 0px;
+            border: 0px;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .fact6 {
+            padding: 0px;
+            margin: 0px;
+            border: 0px;
+            color: white;
+            font-size: 20px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .fact7 {
+            padding-top: 10px;
+            margin: 0px;
+            border: 0px;
+            color: white;
+            font-size: 15px;
+            padding: 0px;
+            text-align: center;
+        }
+
+        .text {
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            padding: 10px;
+            line-height: 30px;
+            font-family: Calibri;
+        }
+
+        .text2 {
+            color: white;
+            text-align: center;
+            font-family: Calibri;
+            font-size: 40px;
+        }
+
+        .footer-div {
+            width: 450px;
+            height: 300px;
+            background-color: rgb(0, 0, 0);
+            border-style: solid;
+            border-color: black;
+            border: 10px;
+            border-radius: 10px;
+        }
+
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        @media only screen and (max-device-width: 1024px) {
+
+            .bgimg-1,
+            .bgimg-2,
+            .bgimg-3,
+            .bgimg-4 {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="header-container">
+        <div class="title-container" style="height: 100px">
+            <h1><a href="index.html">Csíki Angol</a>tábor</h1>
+        </div>
+        <div id="sidebar">
+            <div id="scroller-anchor"></div>
+            <div id="scroller">
+                <div class="navbar">
+                    <a href="index.html">Home</a>
+                    <div class="dropdown">
+                        <button class="dropbtn"><a href="shop.html"
+                                style="padding: 0;background-color: rgba(63, 51, 133, 0)">My
+                                works</a>
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a class="active" href="#all">All</a>
+                            <a href="mernesse.html">Mernesse primes</a>
+                        </div>
+                    </div>
+                    <a href="support.html">Support</a>
+                    <a href="news.html">News</a>
+                    <a href="#Contact">Contact</a>
+                </div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div class="buu"></div>
+
+    <div
+        style="line-height: 10px;background-color: rgb(156, 119, 226);padding: 10px;border-style: solid;border-width: 8px; border-bottom-width: 0px;border-color: white">
+        <a href="mernesse.html">
+            <h2 class="text2" style="text-align: center">The wider groups of the Mernesse primes</h2>
+            <p class="text">Get to know the wider group of Mernesse primes, read the proof that 0^0 equals 1</p>
+        </a>
+    </div>
+    <div class="bgimg-1" style="border-style: solid;border-width: 8px; border-top-width: 0px;border-color: white"></div>
+
+    <div class="footer">
+        <!-- Footer -->
+        <footer class="rest">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
+                <!-- Section: Links -->
+                <section class="section">
+                    <div id="Contact" class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <div class="footer-div">
+                            <h6 class="fact4">Contact</h6>
+                            <div class="Email">
+                                <p class="fact5">Email:</p>
+                                <p>
+                                    <a class="fact6" style="text-align: center">pezzalimathematics@gmail.com</a>
+                                </p>
+                            </div>
+                            <div class="Phone number">
+                                <p class="fact5"> </p>
+                                <p>
+                                    <a class="fact7"><em>Francesco Pezzali, 2023</em></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+            </div>
+            </section>
+            <!-- Section: Copyright -->
+    </div>
+    <!-- Grid container -->
+    </footer>
+    </div>
+</body>
+
+</html>

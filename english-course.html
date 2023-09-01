@@ -1,0 +1,480 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Csíki Angol - Angol kurzus</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Add smooth scrolling to all links
+            $("a").on('click', function (event) {
+
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 0, function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+        });
+        function scrollFunction() {
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+        function changeCss() {
+            var navElement = document.getElementById("navbar");
+            if (this.scrollY > 100) {
+                navElement.classList.add("fixed");
+            } else {
+                navElement.classList.remove("fixed");
+            }
+        }
+
+        window.addEventListener("scroll", changeCss, false);
+    </script>
+    <style>
+        body,
+        html {
+            margin: 0;
+            scroll-behavior: smooth;
+        }
+
+        h1 {
+            font-size: 75px;
+            text-align: center;
+            padding: 0px;
+            margin: 0px;
+            font-family: Calibri;
+            background-image: url("images/header.jpg");
+            background-size: cover;
+        }
+
+        table {
+            width: 100%;
+            font-size: 25px;
+            text-align: center;
+            color: white
+        }
+
+        h2 a {
+            font-size: 40px;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            font-family: Calibri;
+        }
+
+        a {
+            text-decoration: none;
+            color: white
+        }
+
+        h1 {
+            color: white;
+            margin: 0;
+        }
+
+        img {
+            padding: 0;
+            margin: 0;
+            width: 15px;
+        }
+
+        .title-container {
+            background-image: url('images/header.jpg');
+            background-size: cover;
+        }
+
+        .title-container2 {
+            background-image: url('images/header.jpg');
+            background-size: cover;
+            font-family: Calibri;
+        }
+
+        .fact {
+            border-top: 1px solid rgb(222, 222, 222);
+            border-bottom: 1px solid rgb(222, 222, 222);
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-left: 50px;
+            padding-right: 50px;
+            margin: 0px;
+            font-size: 40px;
+            background-size: cover;
+            background-color: white;
+            box-shadow: 0 0 10px #000000;
+        }
+
+        .fact:hover {
+            box-shadow: 0 0 20px #000000;
+        }
+
+        .fact2 {
+            font-size: 20px;
+            font-family: Calibri;
+            color: black;
+            padding: 0px;
+            margin-bottom: 0px;
+            text-align: center;
+        }
+
+        .header-container {
+            top: 0;
+            width: 100%;
+            background-color: rgb(8, 43, 111);
+            background-image: url("images/header.jpg");
+            z-index: 10;
+            height: 143px;
+        }
+
+        .contact {
+            float: left;
+            font-size: 18px;
+            color: white;
+            text-align: center;
+            padding: 14px 40px;
+            text-decoration: none;
+            background-color: rgb(8, 43, 111);
+            cursor: pointer;
+        }
+
+        #navbar a {
+            float: left;
+            font-size: 18px;
+            color: white;
+            text-align: center;
+            padding: 14px 40px;
+            text-decoration: none;
+            background-color: rgb(8, 43, 111);
+        }
+
+        #navbar {
+            width: 100%;
+            z-index: 20;
+            display: flex;
+            float: left;
+            font-size: 18px;
+            color: white;
+            text-align: center;
+            padding: 0px;
+            text-decoration: none;
+            background-color: rgb(8, 43, 111);
+            padding-top: 0px;
+            padding-bottom: 0px;
+            font-family: Calibri;
+        }
+
+        #navbar.fixed {
+            position: fixed;
+            top: 0;
+        }
+
+        .header-container {
+            z-index: 20;
+            background-color: rgb(8, 43, 111);
+        }
+
+        .dropdown {
+            float: center;
+            overflow: hidden;
+            padding: 0px;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 40px;
+            background-color: rgb(240, 0, 1);
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: rgb(155, 13, 13);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            background-color: rgb(8, 43, 111);
+        }
+
+        #navbar a:hover,
+        .contact:hover,
+        .dropdown-content a:hover {
+            background-color: rgb(15, 63, 161);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .buu {
+            padding: 73px;
+            background-color: rgb(8, 43, 111);
+        }
+
+        #navbar a.active {
+            background-color: rgb(240, 0, 1);
+        }
+
+        #navbar a.active:hover {
+            background-color: rgb(155, 13, 13);
+        }
+
+        .bgimg-1,
+        .bgimg-2,
+        .bgimg-3,
+        .bgimg-4 {
+            position: relative;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-width: 0px;
+            height: 400px;
+            border-color: rgb(255, 255, 255);
+
+        }
+
+        .bgimg-1 {
+            background-image: url("images/flag.jpg");
+        }
+
+        .bgimg-2 {
+            background-image: url("images/support-2.jpg");
+            border-style: solid;
+        }
+
+        .bgimg-3 {
+            background-image: url("images/news.jpg");
+        }
+
+        .caption {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #000;
+        }
+
+        .des {
+            padding: 185px;
+            box-shadow: 20px;
+        }
+
+        .fact4 {
+            font-size: 30px;
+            color: rgb(255, 255, 255);
+            padding-top: 40px;
+            padding-bottom: 20px;
+            text-align: center;
+            margin: 0px;
+        }
+
+        .rest {
+            background-size: cover;
+            padding: 0px;
+            padding-bottom: 40px;
+            margin: 0px;
+            border: 0px;
+            background-image: url("images/bus-2.png");
+            font-style: Calibri;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            height: 400px;
+            position: relative;
+            align-items: center;
+        }
+
+        .fact5 {
+            padding: 0px;
+            margin: 0px;
+            border: 0px;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .fact6 {
+            padding: 0px;
+            margin: 0px;
+            border: 0px;
+            color: white;
+            font-size: 20px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .fact7 {
+            padding-top: 10px;
+            margin: 0px;
+            border: 0px;
+            color: white;
+            font-size: 15px;
+            padding: 0px;
+            text-align: center;
+        }
+
+        .text {
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            padding: 10px;
+            line-height: 30px;
+            font-family: Calibri;
+        }
+
+        .text2 {
+            color: white;
+            text-align: center;
+            font-family: Calibri;
+            font-size: 40px;
+        }
+
+        .footer-div {
+            width: 450px;
+            height: 300px;
+            background-color: rgb(0, 0, 0);
+            border-style: solid;
+            border-color: black;
+            border: 10px;
+            border-radius: 10px;
+        }
+
+
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        @media only screen and (max-device-width: 1024px) {
+
+            .bgimg-1,
+            .bgimg-2,
+            .bgimg-3,
+            .bgimg-4 {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="header-container">
+        <div class="title-container" style="height: 100px">
+            <h1><a href="index.html">Csíki Angol</a></h1>
+        </div>
+        <div id="sidebar">
+            <div id="scroller-anchor"></div>
+            <div id="scroller">
+                <div class="navbar" id="navbar">
+                    <a href="index.html">Kezdőlap</a>
+                    <div class="dropdown">
+                        <button class="dropbtn"><a href="english-course.html"
+                                style="padding: 0;background-color: rgba(8, 43, 111, 0)">Angol kurzus</a>
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="8-10.html">Korosztály: 8 - 10 éves</a>
+                            <a href="10-12.html">Korosztály: 10 - 12 éves</a>
+                        </div>
+                    </div>
+                    <a href="map.html">Térkép</a>
+                    <a href="news.html">Hírek</a>
+                    <div class="contact" onclick="scrollFunction()">Kapcsolat</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div
+        style="line-height: 10px;background-color: rgb(15, 63, 161);padding: 10px;border-style: solid;border-width: 8px; border-bottom-width: 0px; border-top-width: 14px; border-color: white">
+        <h2 class="text2" style="text-align: center">Tanítási módszer</h2>
+        <p class="text">A gyerekek a játékossággal és kedvességgel kevert tanulásra a legfogékonyabbak, mi is ezt a módszert használjuk. Az angoltanulás másik fontos tényezője, a sok beszégletés angolul, valamint gyakori szituációk eljátszása (kávézás, festmények elemzése...).</p>
+    </div>
+    <div class="bgimg-1" style="border-style: solid;border-width: 8px; border-top-width: 0px;border-color: white"></div>
+    <div style="line-height: 10px;background-color: rgb(15, 63, 161);padding: 10px">
+        <h2 class="text2" style="z-index: 100px;text-align: center">Tanítási díj</h2>
+        <p class="text">Októbertől hetenként két óra van, hétfőn és szerdán. A tandíj 15 RON / óra.</p>
+    </div>
+    <div class="bgimg-2"></div>
+    <div
+        style="line-height: 10px;background-color: rgb(15, 63, 161);padding: 10px;border-style: solid;border-width: 8px; border-bottom-width: 0px;border-color: white">
+        <h2 class="text2" style="z-index: 100px;text-align: center">Jelentkezés</h2>
+        <p class="text">Az első óra 2023. október 2-án lesz. Szeptember 30-ig lehet Jelentkezni, de később is be lehet kapcsolódni. Jelentkezéshez hívjon a Kapcsolat rész alatt található telefonszámon, vagy írjon a telefonszám fölött megadott email
+        címre. A részletekről telefonon vagy email-en keresztül lehet érdeklődni.
+        </p>
+    </div>
+    <div class="bgimg-3" style="border-style: solid;border-width: 8px; border-top-width: 0px;border-color: white"></div>
+    <div class="footer">
+        <!-- Footer -->
+        <footer class="rest">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
+                <!-- Section: Links -->
+                <section class="section">
+                    <div id="Contact" class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <div class="footer-div">
+                            <h6 class="fact4">Kapcsolat</h6>
+                            <div class="Email">
+                                <p>
+                                    <a class="fact6" style="text-align: center">csikiangol@gmail.com</a>
+                                </p>
+                            </div>
+                            <div class="Email">
+                                <p>
+                                    <a class="fact6" style="text-align: center; padding-bottom: 100px;">+36 30 016</a>
+                                </p>
+                            </div>
+                            <div class="Phone number">
+                                <p class="fact5"> </p>
+                                <p>
+                                    <a class="fact7"><em>Pöttyös Szilvia, 2023</em></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+            </div>
+            </section>
+            <!-- Section: Copyright -->
+    </div>
+    <!-- Grid container -->
+    </footer>
+    </div>
+</body>
+
+</html>

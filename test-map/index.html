@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bing Maps Example</title>
+    <meta charset="utf-8" />
+    <script type='text/javascript'
+        src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AsKi6uxx_DPT5OgYVpjbuewkzFjnT6VolDiVXfuM-tOL6R3U9cUVvyegXQRniINi' async defer></script>
+    <script type='text/javascript'>
+        function GetMap() {
+            var map = new Microsoft.Maps.Map('#myMap', {
+                center: new Microsoft.Maps.Location(46.47114428891211, 25.181307531120922),
+                zoom: 12
+            });
+            var pushpin = new Microsoft.Maps.Pushpin(map.getCenter(), {
+                title: "Korond"
+            });
+            map.entities.push(pushpin);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="myMap" style="position:relative;width:600px;height:400px;"></div>
+</body>
+
+</html>

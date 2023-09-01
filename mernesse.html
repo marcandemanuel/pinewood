@@ -1,0 +1,646 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Pinewood</title>
+    <meta charset="utf-8">
+    <title>CSS Basics</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        var cost = 8000;
+        var firstItemChecked = false;
+        var secondItemChecked = false;
+        var imageChecked = false;
+        var imageChecked2 = false;
+        function addRow() {
+            var image = document.getElementById('image');
+            if (image.src.match("colorbottel")) {
+                image.src = "images/w.png";
+            }
+            else {
+                image.src = "images/l.jpg";
+            }
+            if (imageChecked2) {
+                imageChecked2 = false;
+                const element = document.getElementById("demo2");
+                element.remove();
+                image.src = "images/w.png";
+            } else {
+                imageChecked2 = true;
+                document.querySelector('#foo').insertAdjacentHTML(
+                    'afterbegin',
+                    `<div class="row" id="demo2">
+        <label><p style="padding: 20px;line-height: 25px;font-size: 15px;cursor: pointer" onclick="myFunction()">This is a very good lamp, and if you buy this until August 15, you will get a volcano lamp for the volcano table, and 1500$ discount.</p></label>
+        </div>`
+                )
+            }
+        }
+        function addRow2() {
+            var image = document.getElementById('image2');
+            if (image.src.match("colorbottel")) {
+                image.src = "images/w.png";
+            }
+            else {
+                image.src = "images/l.jpg";
+            }
+            if (imageChecked2) {
+                imageChecked2 = false;
+                const element = document.getElementById("demo3");
+                element.remove();
+                image.src = "images/w.png";
+            } else {
+                imageChecked2 = true;
+                document.querySelector('#poo').insertAdjacentHTML(
+                    'afterbegin',
+                    `<div class="row" id="demo3">
+        <label><p style="padding: 20px;line-height: 25px;font-size: 15px;cursor: pointer" onclick="myFunction()">This is a very good lamp, and if you buy this until August 15, you will get a volcano lamp for the volcano table, and 1500$ discount.</p></label>
+        </div>`
+                )
+            }
+        }
+        function removeRow(input) {
+            input.parentNode.remove()
+        }
+        function myFunction() {
+            if (firstItemChecked) {
+                firstItemChecked = false;
+                cost -= 500;
+                document.getElementById('foo3').style.cssText = 'border-color: rgb(0, 0, 0);color: black;font-size: 20px;padding: 0px;margin: 10px 20px';
+            } else {
+                firstItemChecked = true;
+                cost += 500;
+                document.getElementById('foo3').style.cssText = 'border-color: rgb(0, 0, 255);color: black;font-size: 20px;padding: 0px;margin: 10px 20px;box-shadow: 0px 0px 0px 3px #339DE6';
+            }
+            document.getElementById("demo").innerHTML = cost;
+        }
+        function myx() {
+            if (secondItemChecked) {
+                secondItemChecked = false;
+                cost -= 300;
+                document.getElementById('foo2').style.cssText = 'border-color: rgb(0, 0, 0);color: black;font-size: 20px;padding: 0px;margin: 10px 20px';
+            } else {
+                secondItemChecked = true;
+                cost += 300;
+                document.getElementById('foo2').style.cssText = 'border-color: rgb(0, 0, 255);color: black;font-size: 20px;padding: 0px;margin: 10px 20px;box-shadow: 0px 0px 0px 3px #339DE6';
+            }
+            document.getElementById("demo").innerHTML = cost;
+        }
+        $(document).ready(function () {
+            // Add smooth scrolling to all links
+            $("a").on('click', function (event) {
+
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 0, function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+        });
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background-color: rgb(0, 0, 0);
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: rgb(80, 40, 0);
+            border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(60, 30, 0);
+        }
+
+        body,
+        html {
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 75px;
+            text-align: center;
+            padding: 0px;
+            margin: 0px;
+            font-family: andalus;
+        }
+
+        table {
+            width: 100%;
+            font-size: 25px;
+            text-align: center;
+            color: white;
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+            border: 0px;
+        }
+
+        h2 a {
+            font-size: 40px;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            font-family: andalus;
+        }
+
+        a {
+            text-decoration: none;
+            color: white
+        }
+
+        h1 {
+            color: white;
+            margin: 0;
+        }
+
+        .title-container {
+            background-image: url('images/k.jpg');
+            background-size: cover;
+        }
+
+        .title-container2 {
+            background-image: url('images/a.jpg');
+            background-size: cover;
+            font-family: andalus;
+        }
+
+        .fact {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 50px;
+            padding-right: 50px;
+            margin: 0px;
+            font-size: 40px;
+            background-size: cover;
+            background-color: rgba(255, 255, 255, 0.20);
+            box-shadow: 0 0 5px #000000;
+        }
+
+        .fact:hover {
+            box-shadow: 0 0 20px #000000;
+        }
+
+        .fact2 {
+            font-size: 20px;
+            font-family: andalus;
+            color: black;
+            padding: 0px;
+            margin-bottom: 0px;
+            text-align: center;
+        }
+
+        .header-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgb(20, 10, 0);
+            z-index: 10;
+        }
+
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 40px;
+            text-decoration: none;
+            background-color: rgb(20, 10, 0);
+        }
+
+        .navbar {
+            z-index: 20;
+            display: flex;
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 0px;
+            text-decoration: none;
+            background-color: rgb(20, 10, 0);
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        .header-container {
+            z-index: 20;
+            position: fixed;
+            background-color: rgb(20, 10, 0);
+        }
+
+        .dropdown {
+            float: center;
+            overflow: hidden;
+            padding: 0px;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 40px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+            background-color: rgb(120, 60, 0);
+        }
+
+        .navbar a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: rgb(80, 40, 0);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            background-color: rgb(20, 10, 0);
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgb(80, 40, 0);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .buu {
+            padding: 73px;
+            background-color: rgba(20, 10, 0, 0);
+        }
+
+        .navbar a.active {
+            background-color: rgb(120, 60, 0);
+        }
+
+        .navbar a.active:hover {
+            background-color: rgb(80, 40, 0);
+        }
+
+        .bgimg-1,
+        .bgimg-2,
+        .bgimg-3,
+        .bgimg-4,
+        .bgimg-5,
+        .bgimg-6 {
+            position: relative;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 200px;
+
+        }
+
+        .bgimg-1 {
+            background-image: url("images/d.jpg");
+            min-height: 50%;
+        }
+
+        .bgimg-2 {
+            background-image: url("images/j.jpg");
+            min-height: 50%;
+        }
+
+        .bgimg-3 {
+            background-image: url("images/n.jpg");
+            min-height: 50%;
+        }
+
+        .bgimg-4 {
+            background-image: url("images/r.jpg");
+            min-height: 50%;
+        }
+
+        .bgimg-5 {
+            background-image: url("images/u.jpg");
+            min-height: 50%;
+        }
+
+        .bgimg-6 {
+            background-image: url("images/k.jpg");
+            min-height: 50%;
+        }
+
+        .caption {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #000;
+        }
+
+        .des {
+            padding: 107px;
+            box-shadow: 20px;
+            z-index: 331px;
+        }
+
+        .fact4 {
+            font-size: 30px;
+            color: rgb(255, 255, 255);
+            padding-top: 40px;
+            padding-bottom: 20px;
+            text-align: center;
+            margin: 0px;
+        }
+
+        .rest {
+            background-size: cover;
+            padding: 0px;
+            padding-bottom: 40px;
+            margin: 0px;
+            border: 0px;
+            background-color: rgb(20, 10, 0);
+            font-style: andalus;
+            text-align: center;
+        }
+
+        .fact5 {
+            padding: 0px;
+            margin: 0px;
+            border: 0px;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .fact6 {
+            padding: 0px;
+            margin: 0px;
+            border: 0px;
+            color: white;
+            font-size: 20px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .fact7 {
+            padding-top: 10px;
+            margin: 0px;
+            border: 0px;
+            color: white;
+            font-size: 15px;
+            padding: 0px;
+            text-align: center;
+        }
+
+        .style {
+            width: 50%;
+        }
+
+        img {
+            width: 40px;
+        }
+
+        #customers {
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+            border: 0px;
+            font-family: andalus;
+        }
+
+        .parag {
+            font-size: 20px;
+            font-family: andalus;
+            text-align: center;
+            padding: 100px;
+        }
+
+        th {
+            padding: 0px;
+        }
+
+        .parag2 {
+            font-size: 60px;
+            font-family: andalus;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .farag3 {
+            line-height: 5px;
+            font-size: 30px;
+            font-family: andalus;
+            text-align: left;
+            padding: 0px;
+            border-style: solid;
+            border-width: 3px;
+            border-color: black;
+            border-radius: 10px;
+            text-align: center;
+            padding-left: 0px;
+            margin: 10px;
+        }
+
+        .farag4 {
+            line-height: 0px;
+            font-size: 30px;
+            font-family: andalus;
+            text-align: left;
+            padding: 0px;
+            border-style: solid;
+            border-width: 3px;
+            border-color: rgb(29, 94, 4);
+            border-radius: 10px;
+            text-align: center;
+            padding-left: 0px;
+            margin: 10px;
+        }
+
+        html table {
+            line-height: 30px;
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        @media only screen and (max-device-width: 1024px) {
+
+            .bgimg-1,
+            .bgimg-2,
+            .bgimg-3,
+            .bgimg-4,
+            .bgimg-5,
+            .bgimg-6 {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="header-container">
+        <div class="title-container" style="height: 100px">
+            <h1>Pinewood</h1>
+        </div>
+        <div id="sidebar">
+            <div id="scroller-anchor"></div>
+            <div id="scroller">
+                <div class="navbar">
+                    <a href="index.html">Home</a>
+                    <div class="dropdown">
+                        <button class="dropbtn"><a href="shop.html"
+                                style="padding: 0;background-color: rgba(20, 10, 0, 0)">Shop</a>
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#">Table</a>
+                            <a href="#">Bed</a>
+                            <a href="#">Sold out</a>
+                        </div>
+                    </div>
+                    <a href="delivery.html">Delivery</a>
+                    <a href="news.html">News</a>
+                    <a href="#Contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="buu"></div>
+    <table id="customers">
+        <tr>
+            <th class="style">
+                <div class="images">
+                    <div class="bgimg-1"></div>
+                    <div class="bgimg-2"></div>
+                    <div class="bgimg-3"></div>
+                    <div class="bgimg-4"></div>
+                </div>
+            </th>
+            <th class="style2" style="vertical-align: top">
+                <h2 class="cim" style="color: black;font-size: 70px">Epoxy Table<h2>
+                        <p class="parag" style="color: black;padding: 20px 40px;padding-bottom: 30px">This table is from
+                            pine and epoxy. We worked with this table 9 days, and it needed epoxy, surface treatment
+                            materials and pine slab. We used tablesaw, ...
+                        <p>
+                        <div style="padding-left: 0px">
+                            <ul style="text-align: left;padding-left: 80px">
+                                <p style="color: black;font-size: 25px;padding: 0px;text-align: left;"><img
+                                        src="images/z.jpg">: 20kg
+                                    <p />
+                                <p style="color: black;font-size: 25px"><img src="images/z.jpg">: 80, 100, 20
+                                    <p />
+                                <p style="color: black;font-size: 25px;text-align: left"><img src="images/z.jpg">: Pine
+                                    <p />
+                                <p style="color: black;font-size: 25px;text-align: left"><img src="images/z.jpg">: 8000$
+                                    <p />
+                                    <ul />
+                        </div>
+                        <div style="text-align: center">
+                            <h3 class="parag2" style="color: black">Accesories
+                                <h3 />
+                                <div id="foo2" class="farag3"
+                                    style="color: black;font-size: 20px;padding: 0px;margin: 10px 20px">
+                                    <p onclick="myx()" style="padding-top: 10px;cursor: pointer">+300$: Coasters
+                                        <p />
+                                    <div id="poo"></div>
+                                    <div style="margin: 0px;padding-bottom: 10px;cursor: pointer">
+                                        <img id="image2" onclick="addRow2()" src="images/w.png"
+                                            style="width: 20px;margin: 0px">
+                                    </div>
+                                </div>
+                                <div id="foo3" class="farag3"
+                                    style="color: black;font-size: 20px;padding: 0px;margin: 10px 20px">
+                                    <p style="padding-top: 10px;cursor: pointer"><span onclick="myFunction()">+500$:
+                                            Lamp </span>
+                                        <a href="news.html" style="color: black;font-size: 20px">(Discount)</a>
+                                        <p />
+                                    <div id="foo"></div>
+                                    <div style="margin: 0px;padding-bottom: 10px;cursor: pointer">
+                                        <img id="image" onclick="addRow()" src="images/w.png"
+                                            style="width: 20px;margin: 0px">
+                                    </div>
+                                </div>
+                                <a href="check-out.html" style="color: rgb(29, 94, 4)">
+                                    <div class="farag4"
+                                        style="color: rgb(29, 94, 4);font-size: 20px;padding: 0px;margin: 120px 20px;background-color: rgb(62, 204, 6)">
+                                        <p style="padding: 15px;margin: 15px;font-size: 40px">Add to cart
+                                            <p />
+                                            <span style="margin: 0px;padding-bottom: 20px"><span
+                                                    id="demo">8000</span><span>$</span></span>
+                                    </div>
+                                </a>
+                        </div>
+            </th>
+        </tr>
+        <table />
+
+        <div class="footer">
+            <!-- Footer -->
+            <footer class="rest">
+                <!-- Grid container -->
+                <div class="container p-4 pb-0">
+                    <!-- Section: Links -->
+                    <section class="section">
+                        <div id="Contact" class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                            <h6 class="fact4">Contact</h6>
+                            <div class="Email">
+                                <p class="fact5">Email</p>
+                                <p>
+                                    <a class="fact6" style="text-align: center">pinewood@gmail.com</a>
+                                </p>
+                            </div>
+                            <div class="Phone number">
+                                <p class="fact5">Phone number</p>
+                                <p>
+                                    <a class="fact6" style="text-align: center">036...</a>
+                                </p>
+                                <p>
+                                    <a class="fact7"><em>Pinewood company, 2022</em></a>
+                                </p>
+                            </div>
+                        </div>
+
+                </div>
+                </section>
+                <!-- Section: Copyright -->
+        </div>
+        <!-- Grid container -->
+        </footer>
+        </div>
+</body>
+
+</html>
