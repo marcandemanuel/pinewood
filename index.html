@@ -1,6 +1,7 @@
 <html>
 <head>
     <style>
+
         @font-face {
           font-family: "Aniron";
           src: url("Aniron.ttf");
@@ -10,6 +11,7 @@
           font-family: "Aniron", sans-serif;
           font-size: 80px;
           text-align: center;
+          align-items: center;
           color: transparent;
           -webkit-text-stroke-width: 2px;
           -webkit-text-stroke-color: #9C8028;
@@ -20,13 +22,12 @@
         }
 
         body {
-          display: flex;
           align-items: center;
           justify-content: center;
-          height: calc(100% - 50);
           background-image: url("lotr-2.jpg");
           background-size: cover;
           background-repeat: no-repeat;
+          display: flex
         }
 
         .numbers-line,
@@ -64,18 +65,43 @@
             pointer-events: none;
             z-index: 9999;
         }
+
+        #toggle_button {
+            background-color: transparent;
+            border: none;
+            margin: 0px 10px;
+        }
+
+        #controls {
+            right: 0;
+            display: flex;
+            position: absolute;
+            bottom: 6vh;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            justify-content: center;
+            justify-items: center;
+            width: 100%
+        }
+
+        #island {
+            background-color: rgba(156, 128, 40, 0.1);
+            width: 15vw;
+            height: 6vh;
+            display: flex;
+            justify-content: center;
+            border-radius: 4vh;
+            box-shadow: 0px 0px 8px #9C8028;
+            padding: 10px;
+        }
+
     </style>
     <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
 </head>
 <body>
-    <audio id="musicPlayer" autoplay loop controls>
+    <audio id="musicPlayer" loop>
         <source src="lotr-1.mp3" type="audio/mp3">
-        <source src="lotr-2.mp3" type="audio/mp3">
-        <source src="lotr-3.mp3" type="audio/mp3">
-        <source src="lotr-4.mp3" type="audio/mp3">
-        <source src="lotr-5.mp3" type="audio/mp3">
-        <source src="lotr-6.mp3" type="audio/mp3">
-        <source src="lotr-7.mp3" type="audio/mp3">
     </audio>
     <div id="timer">
       <div class="numbers-line">
@@ -90,9 +116,75 @@
       <div class="labels-line">
         <span class="days-label">Days   </span><span class="hours-label">Hours   </span><span class="minutes-label">Minutes   </span><span class="seconds-label">Seconds</span>
       </div>
+      <div id="controls">
+        <div id="island">
+            <button onclick="playNextOrPrevious('previous')" id="toggle_button" type="button">
+                <img src="backward.png" width="100%" height="100%">
+            </button>
+            <button onclick="playAudioInLoop()" id="toggle_button" type="button">
+                <img src="play.png" width="100%" height="100%" id="play-button">
+            </button>
+            <button onclick="playNextOrPrevious('next')" id="toggle_button" type="button">
+                <img src="forward.png" width="100%" height="100%">
+            </button>
+        </div>
+      </div>
     </div>
     <canvas id="confetti"></canvas>
     <script>
+        const audioFiles = [
+            "lotr-1.mp3",
+            "lotr-2.mp3",
+            "lotr-3.mp3",
+            "lotr-4.mp3",
+            "lotr-5.mp3",
+            "lotr-6.mp3",
+            "lotr-7.mp3"
+        ]
+        const audioElement = document.getElementById("musicPlayer");
+        const imageElement = document.getElementById("play-button");
+        let currentIndex = -1;
+
+        function playAudioInLoop() {
+                audioElement.loop = true;
+
+                if (audioElement.paused) {
+                    audioElement.play();
+                    imageElement.src = "pause.png"
+                } else {
+                    audioElement.pause();
+                    imageElement.src = "play.png"
+                }
+
+                if (currentIndex === -1) {
+                    currentIndex = 0;
+                }
+            }
+
+        function playNextOrPrevious(direction) {
+                const isPlaying = audioElement.paused ? false : true;
+
+                if (direction === 'next' & currentIndex !== -1) {
+                    const nextIndex = currentIndex === audioFiles.length - 1 ? 0 : currentIndex + 1;
+                    audioElement.src = audioFiles[nextIndex];
+                    currentIndex = nextIndex;
+                    console.log(currentIndex);
+                } else if (direction === 'previous' & currentIndex !== -1) {
+                    const previousIndex = currentIndex === 0 ? audioFiles.length - 1 : currentIndex - 1;
+                    audioElement.src = audioFiles[previousIndex];
+                    currentIndex = previousIndex;
+                }
+
+                if (isPlaying) {
+                    audioElement.play();
+                } else {
+                    audioElement.pause();
+                }
+            }
+
+        audioElement.addEventListener('ended', () => {
+            playNextOrPrevious('next');
+        });
         // Set the target date
         var endDate = new Date("2024-10-22T18:30:00");
 
