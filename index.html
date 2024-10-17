@@ -106,8 +106,7 @@
     <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
 </head>
 <body>
-    <audio id="musicPlayer" loop>
-        <source src="lotr-1.mp3" type="audio/mp3">
+    <audio id="musicPlayer" src="lotr-1.mp3">
     </audio>
     <div id="timer">
       <div class="numbers-line">
@@ -152,8 +151,6 @@
         let currentIndex = -1;
 
         function playAudioInLoop() {
-                audioElement.loop = true;
-
                 if (audioElement.paused) {
                     audioElement.play();
                     imageElement.src = "pause.png"
@@ -167,7 +164,7 @@
                 }
             }
 
-        function playNextOrPrevious(direction) {
+        function playNextOrPrevious(direction, automatic=false) {
                 const isPlaying = audioElement.paused ? false : true;
 
                 if (direction === 'next' & currentIndex !== -1) {
@@ -181,7 +178,7 @@
                     currentIndex = previousIndex;
                 }
 
-                if (isPlaying) {
+                if (isPlaying || automatic) {
                     audioElement.play();
                 } else {
                     audioElement.pause();
@@ -189,7 +186,7 @@
             }
 
         audioElement.addEventListener('ended', () => {
-            playNextOrPrevious('next');
+            playNextOrPrevious('next', true);
         });
         // Set the target date
         var endDate = new Date("2024-10-22T18:30:00");
